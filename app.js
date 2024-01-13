@@ -1,10 +1,9 @@
 // modules
-const tiger = 'tiger';
-const secret = 'super secret';
-
-const sayHi = (name) => {
-  console.log(`Hello there ${name}`);
-};
+const names = require('./04-names');
+const sayHi = require('./05-utils');
 
 sayHi('sunny');
-sayHi(tiger);
+sayHi(names.tiger);
+sayHi(names);
+
+console.log(module);
