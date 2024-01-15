@@ -1,12 +1,20 @@
-const path = require('path');
+const { readFileSync, writeFileSync } = require('fs');
 
-console.log(path.sep);
+//how to read from file system
+//two args: path , the encoding: so node  knows how to decode
 
-const filePath = path.join('/content', 'subfolder', 'test.txt');
-console.log(filePath);
+const first = readFileSync('./content/first.txt', 'utf-8');
+const second = readFileSync('./content/second.txt', 'utf-8');
 
-const base = path.basename(filePath);
-console.log(base);
+console.log(first, second);
 
-const absolute = path.resolve(__dirname, 'content', 'subfolder', 'text.txt');
-console.log(absolute);
+//create new file
+// two args: file name (if file is not there, it will create one, if its there it will overwrite it), value you want to pass
+
+writeFileSync(
+  './content/result-sync.txt',
+  `Here is the result: ${first}, ${second}`,
+  { flag: 'a' }
+);
+
+// if you want to append to file: add third arg with object flag a
