@@ -1,5 +1,5 @@
 const { readFile, writeFile } = require('fs');
-
+console.log('start');
 //async needs a cb function
 
 readFile('./content/first.txt', 'utf-8', (err, result) => {
@@ -22,8 +22,9 @@ readFile('./content/first.txt', 'utf-8', (err, result) => {
           console.log(err);
           return;
         }
-        console.log(result);
+        console.log('done with this task');
       }
     );
   });
 });
+console.log('start next task');
