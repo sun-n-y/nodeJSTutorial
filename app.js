@@ -1,12 +1,16 @@
-// modules
-const names = require('./04-names');
-const sayHi = require('./05-utils');
-const data = require('./06-alternative-flavor');
+const os = require('os');
 
-require('./07-mind-grenade');
+//info about current user
+const user = os.userInfo();
 
-// sayHi('sunny');
-// sayHi(names.tiger);
-// sayHi(names);
+//method returns system up time in seconds
+console.log(`System uptime is ${os.uptime()} seconds`);
 
-// console.log(data);
+const currentOS = {
+  name: os.type(),
+  release: os.release(),
+  totalMem: os.totalmem(),
+  freeMem: os.freemem(),
+};
+
+console.log(currentOS);
