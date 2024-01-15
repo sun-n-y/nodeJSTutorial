@@ -1,20 +1,7 @@
-const http = require('http');
+const _ = require('lodash');
 
-//create server
-//looking for 2 parameters: req = incoming request. res = what we are sending back.
-const server = http.createServer((req, res) => {
-  if (req.url === '/') {
-    return res.end('welcome to our homepage');
-  }
-  if (req.url === '/about') {
-    return res.end('about page');
-  }
-  res.end(`
-  <h1>Oops</h1>
-  <p>we can't find the page you are looking for</p>
-  <a href="/">back home</a>
-  `);
-});
+const items = [1, [2, [3, [4]]]];
 
-//what port our server will listen to
-server.listen(5000);
+const newItems = _.flattenDeep(items);
+
+console.log(newItems);
